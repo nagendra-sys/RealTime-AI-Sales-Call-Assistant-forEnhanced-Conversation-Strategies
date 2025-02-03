@@ -1,0 +1,109 @@
+Cure the princess
+1- For this lab, you will begin by examining the dataset and understanding the different variables available. You will need to import pandas and numpy for data manipulation, matplotlib and seaborn for data visualization, train_test_split from sklearn model_selection for splitting the data into training and testing sets. You can import all the libraries that you think will be required or can import it as you go along.
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+
+
+2- Load the data data.csv in the notebook using the pandas library.
+
+data=pd.read_csv('data.csv')
+data.head()
+
+Phoenix Feather	Unicorn Horn	Dragon's Blood	Mermaid Tears	Fairy Dust	Goblin Toes	Witch's Brew	Griffin Claw	Troll Hair	Kraken Ink	Minotaur Horn	Basilisk Scale	Chimera Fang	Cured
+0	2.4	18.7	18.4	27.9	7.9	9.6	18.3	13.2	2.5	26.0	10.5	26.2	12.5	0
+1	2.1	6.0	15.0	13.3	15.6	13.1	11.0	5.0	7.2	26.0	1.5	13.3	6.2	0
+2	17.2	13.9	23.8	6.8	10.7	15.8	19.4	2.7	15.4	21.2	11.1	16.6	11.4	1
+3	8.4	9.7	6.8	26.9	4.6	29.1	14.6	19.7	18.0	20.8	13.6	13.9	8.1	1
+4	22.1	10.8	16.4	10.5	22.0	23.4	2.6	18.2	23.8	11.3	5.5	16.8	16.2	0
+
+
+3- Compute the correlation between all variables.
+
+data.corr()
+
+
+Phoenix Feather	Unicorn Horn	Dragon's Blood	Mermaid Tears	Fairy Dust	Goblin Toes	Witch's Brew	Griffin Claw	Troll Hair	Kraken Ink	Minotaur Horn	Basilisk Scale	Chimera Fang	Cured
+Phoenix Feather	1.000000	-0.024394	-0.023557	-0.259106	-0.208022	-0.018191	-0.142387	-0.161637	0.321173	-0.224160	-0.023219	-0.025965	0.009238	0.015931
+Unicorn Horn	-0.024394	1.000000	-0.002469	0.010474	0.014145	0.019987	0.005455	0.033068	0.007860	0.024936	0.014715	-0.008806	-0.021116	-0.008239
+Dragon's Blood	-0.023557	-0.002469	1.000000	0.029384	0.086929	-0.092252	0.152263	-0.059091	-0.043182	0.056685	-0.009658	0.322778	-0.004350	-0.007662
+Mermaid Tears	-0.259106	0.010474	0.029384	1.000000	-0.036810	-0.262034	0.344852	-0.008431	0.153077	0.490274	-0.028583	0.008684	-0.008123	0.009619
+Fairy Dust	-0.208022	0.014145	0.086929	-0.036810	1.000000	0.066415	0.235050	0.337793	0.043373	0.015638	0.023528	0.095666	-0.011109	0.015004
+Goblin Toes	-0.018191	0.019987	-0.092252	-0.262034	0.066415	1.000000	-0.163425	0.051195	0.221062	-0.251362	0.011820	-0.150230	-0.008232	0.046314
+Witch's Brew	-0.142387	0.005455	0.152263	0.344852	0.235050	-0.163425	1.000000	-0.054118	-0.172526	0.170546	-0.003197	0.222624	-0.009290	0.245993
+Griffin Claw	-0.161637	0.033068	-0.059091	-0.008431	0.337793	0.051195	-0.054118	1.000000	0.027322	-0.114718	0.013836	0.122214	0.015607	0.001019
+Troll Hair	0.321173	0.007860	-0.043182	0.153077	0.043373	0.221062	-0.172526	0.027322	1.000000	0.009524	-0.012391	-0.031713	0.026299	0.498165
+Kraken Ink	-0.224160	0.024936	0.056685	0.490274	0.015638	-0.251362	0.170546	-0.114718	0.009524	1.000000	-0.016423	-0.223911	-0.034703	-0.022845
+Minotaur Horn	-0.023219	0.014715	-0.009658	-0.028583	0.023528	0.011820	-0.003197	0.013836	-0.012391	-0.016423	1.000000	-0.001607	0.035684	0.011329
+Basilisk Scale	-0.025965	-0.008806	0.322778	0.008684	0.095666	-0.150230	0.222624	0.122214	-0.031713	-0.223911	-0.001607	1.000000	0.014617	-0.052436
+Chimera Fang	0.009238	-0.021116	-0.004350	-0.008123	-0.011109	-0.008232	-0.009290	0.015607	0.026299	-0.034703	0.035684	0.014617	1.000000	0.022144
+Cured	0.015931	-0.008239	-0.007662	0.009619	0.015004	0.046314	0.245993	0.001019	0.498165	-0.022845	0.011329	-0.052436	0.022144	1.000000
+
+
+4- Plot the frecuency of the target using seaborn.
+
+sns.countplot(x='Cured', data=data); 
+plt.show()
+
+
+5- Check the presents of missing values.
+
+data.isnull().sum()
+
+Phoenix Feather    0
+Unicorn Horn       0
+Dragon's Blood     0
+Mermaid Tears      0
+Fairy Dust         0
+Goblin Toes        0
+Witch's Brew       0
+Griffin Claw       0
+Troll Hair         0
+Kraken Ink         0
+Minotaur Horn      0
+Basilisk Scale     0
+Chimera Fang       0
+Cured              0
+dtype: int64
+
+
+6- Separate the target and the features into two variables.
+
+random_state=0
+X = data.drop('Cured', axis=1)  # Features (all columns except the target)
+y = data['Cured']  # Target variable
+
+
+7- Use train_test_split to split the data into training and testing sets. Split the dataset in 80% training, 20% testing, and random_state=0.
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+
+
+8- Train a liner SVM (import LinearSVC) using the training data, and store the model in svm. You can specify the model parameters such as the C.
+Remember to standarize the dataset (code provided below), please store the results in X_train_sd and X_test_sd .
+
+sc_X = StandardScaler()
+X_train_sd=sc_X.fit_transform(X_train)
+X_test_sd=sc_X.transform(X_test)
+Calculate the f1-score of both the training and testing sets and run the code in a Jupyter Notebook.
+
+Store the results in the variables f1_score_train and f1_score_test .
+
+sc_X = StandardScaler() X_train_std=sc_X.fit_transform(X_train) X_test_std=sc_X.transform(X_test)
+
+from sklearn.svm import LinearSVC
+from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler() 
+X_train_std=sc_X.fit_transform(X_train) 
+X_test_std=sc_X.transform(X_test)
+svm = LinearSVC(C=1.0)
+svm.fit(X_train_std, y_train)
+
+
+y_train_pred = svm.predict(X_train_std)
+y_test_pred = svm.predict(X_test_std)
+f1_score_train= f1_score(y_train, y_train_pred)
+f1_score_test= f1_score(y_test, y_test_pred)

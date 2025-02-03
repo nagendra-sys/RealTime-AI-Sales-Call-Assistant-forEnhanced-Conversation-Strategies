@@ -1,0 +1,26 @@
+In a far-off land, a beautiful princess had fallen gravely ill and the king and queen tried everything to cure her, but to no avail. The villagers told them about a set of magical ingredients that could cure any ailment, but they were volatile in their effects and scarce due to recent droughts. Only a skilled alchemist could determine if a specific combination of these ingredients would work. The king and queen found an alchemist who was a master of Data Science and Machine Learning, and the alchemist carefully examined the claims of the villagers to find the perfect cure for the princess.
+
+1) Which variable present the highest correlation with the target?
+A.	Mermaid Tears
+B.	Griffin Claw
+C.	Witch's Brew
+D.	Troll Hair
+
+Correct! D
+
+
+2) Is the distribution of the target variable in your dataset balanced or imbalanced?
+A.	Imbalanced
+B.	Balanced
+C.	Submitted
+
+Correct! B
+
+
+3) Did you find any missing value?
+A.	No, data does not contain missing values
+B.	Yes, there is 1% of missing values for the dataset
+C.	Yes, there is 4.5% of missing values for the dataset
+D.	Yes, there is 0.05% of missing values for the dataset
+
+Correct! - A
